@@ -95,3 +95,7 @@ class YunDaMa(PyObject):
 		else:
 			return cid, ''
 
+
+ydm = YunDaMa(username='asafish83', password='Tryqtyl2', 
+		appid=1, appkey='22cc5376925e9387a23cf797cb9ba745')
+		

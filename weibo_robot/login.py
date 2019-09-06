@@ -6,13 +6,11 @@ import asyncio
 import requests
 import pyua
 from pyobject import PyObject
-from yundama import YunDaMa
+from yundama import ydm
+from mayi_proxies import mayi
 from pybrowser import PyBrowser
 
 log = PyObject().log
-
-ydm = YunDaMa(username='asafish83', password='Tryqtyl2', 
-		appid=1, appkey='22cc5376925e9387a23cf797cb9ba745')
 		
 
 async def screenshotElement(page, selector, path):
