@@ -1,7 +1,7 @@
 weibo_robot
 ![](https://img.shields.io/badge/python%20-%203.7-brightgreen.svg)
 ========
-> python 提供模拟浏览器环境 
+> gan weibo
 
 ## 安装
 
