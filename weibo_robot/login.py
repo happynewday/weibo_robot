@@ -31,7 +31,7 @@ async def screenshotElement(page, selector, path):
 			'width': rect['width'], 'height': rect['height']}})
 
 
-async def login_weibo(user, pswd):
+async def login(user, pswd):
 	url = 'https://weibo.com/'
 	async with PyBrowser(proxy_server='socks5://localhost:1080') as b:
 		page = await b.newPage()
@@ -86,12 +86,16 @@ async def login_weibo(user, pswd):
 		await page.waitForSelector(selector5, options={'timeout': 5000, 'visible': True})
 		await page.click(selector5)
 		
-		while input('input:') != 'e':
-			await asyncio.sleep(5)
+		log.info('wait for finisehd..')
+		selector6 = '#v6_pl_rightmod_myinfo > div > div > div.WB_innerwrap > ul > li:nth-child(1) > a > span'
+		await page.waitForSelector(selector6, options={'timeout': 30000, 'visible': True})
+		
+		#while input('input:') != 'e':
+		#	await asyncio.sleep(5)
 			
 		cookies = await page.cookies()
 		log.info('save cookies: {}'.format(cookies))
 		open('cookies', 'w').write(json.dumps(cookies, ensure_ascii=False))	
 		
-asyncio.run(login_weibo('18520191011', '1A.justaguest'))
+asyncio.run(login('18520191011', '1A.justaguest'))
 
