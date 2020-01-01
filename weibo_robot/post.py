@@ -28,7 +28,7 @@ async def post(url, cookies, msg):
 		await page.setUserAgent(pyua.CHROME)
 		
 		log.info('set cookies')
-		cookies = json.loads(open(cookies).read())
+		cookies = json.loads(cookies)
 		await page.setCookie(*cookies)
 			
 		log.info('open page.. ')
