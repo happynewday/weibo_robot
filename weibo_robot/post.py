@@ -6,7 +6,7 @@ import asyncio
 import requests
 import pyua
 from pyobject import PyObject
-from pybrowser import PyBrowser
+from .pybrowser import PyBrowser
 
 log = PyObject().log
 		
