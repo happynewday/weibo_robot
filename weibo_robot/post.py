@@ -69,7 +69,5 @@ async def post(url, cookies, msg):
 		while input('input:') != 'e':
 			await asyncio.sleep(5)	
 		
-		
-asyncio.run(post('https://weibo.com/u/5404464551?refer_flag=1001030103_', 
-		'cookies', '很高兴见到你'))
+
 
