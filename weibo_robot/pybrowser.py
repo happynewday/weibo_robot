@@ -10,11 +10,12 @@ from pyobject import PyObject
 
 
 class PyBrowser(PyObject):
-    def __init__(self, proxy_server=None, executable_path=None, userDataDir=None):
+    def __init__(self, proxy_server=None, executable_path=None, userDataDir=None, headLess=False):
         PyObject.__init__(self)
         self.proxy_server = proxy_server
         self.executable_path = executable_path
         self.userDataDir = userDataDir
+        self.headLess = headLess
         self.browser = None
         self.pid = None
 
@@ -58,6 +59,8 @@ class PyBrowser(PyObject):
             kwargs['executablePath'] = self.executable_path
         if self.userDataDir:
             kwargs['userDataDir'] = self.userDataDir
+        if self.headLess:
+            kwargs['headless'] = True
         self.browser = await pyppeteer.launch(kwargs)
         self.pid = self.browser.process.pid
         self.log.info('browser launched [{}][{}]'.format(
